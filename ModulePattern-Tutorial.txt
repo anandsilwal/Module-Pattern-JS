@@ -1,0 +1,34 @@
+var appModule2 = appModule2 || {};
+
+appModule2.Module = (function(){
+  name = "LadyFinger";
+  
+  return {
+    name1 : "Finger2",
+     display : function() { 
+        return "this is lady finger module2";
+        } 
+  }
+  
+    
+})();
+
+
+var appModule = appModule || {};
+
+appModule.Module = (function(appModule2){
+  name = "LadyFinger";
+  
+  return {
+    name1 : "Finger2",
+     display : function() { 
+        return appModule2.Module.display();
+        } 
+  }
+  
+    
+})(appModule2);
+
+console.log(appModule.Module.display());
+
+console.log(appModule.Module.name1);
